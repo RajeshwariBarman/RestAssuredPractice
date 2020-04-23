@@ -35,7 +35,7 @@ public class Serialise_Test {
 		
 		
 		RestAssured.baseURI = "https://rahulshettyacademy.com";
-		Response resp = given().queryParam("key", "qaclick123").body(add_place).
+		Response resp = given().log().all().queryParam("key", "qaclick123").body(add_place).
 				when().log().all().post("/maps/api/place/add/json").then().log().all().assertThat()
 				.statusCode(200).extract().response();
 		
